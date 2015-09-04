@@ -4,7 +4,7 @@
 */
 var JSON5 = require("json5");
 var loaderUtils = require("loader-utils");
-var baseRegex = "\\s*[@#]\\s*sourceMappingURL=data:[^;\n]+;base64,(.*)",
+var baseRegex = "\\s*[@#]\\s*sourceMappingURL=data:[^;\n]+;base64,([^\\s]*)",
 	// Matches /* ... */ comments
 	regex1 = new RegExp("/\\*"+baseRegex+"\\s*\\*/$"),
 	// Matches // .... comments
@@ -63,5 +63,5 @@ module.exports = function(input) {
 		stream.write(input);
 		stream.end();
 	}
-}
+};
 module.exports.raw = true;
