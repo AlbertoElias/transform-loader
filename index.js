@@ -37,7 +37,7 @@ module.exports = function(input) {
 		}
 	}, this);
 	function next(transformFn, options) {
-		var stream = transformFn(resource, options);
+		var stream = transformFn.create(options)(resource);
 		var bufs = [];
 		var done = false;
 		stream.on("data", function(b) {
